@@ -8,6 +8,7 @@ class Auth
   end
 
   def self.decode(token)
+    JWT.decode(token, hmac_secret, true, { algorithm: ALGORITHM }).first
   end
 
   def self.hmac_secret
