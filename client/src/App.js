@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import { Provider, Heading } from 'rebass'
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="App">
-        <h1>Watch<sup>ed</sup></h1>
-      </div>
-    );
+      <Provider className='App'>
+        <Heading>Watch<sup>ed</sup></Heading>
+      </Provider>
+    )
   }
 }
 
-export default App;
+export default App
