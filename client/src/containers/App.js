@@ -1,8 +1,10 @@
 import React from 'react'
 import { Provider, Container } from 'rebass'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Logo from '../components/Logo'
-import Quote from '../components/Quote'
+import Header from '../components/Header'
+import Nav from '../components/Nav'
+
+import '../App.css'
 
 const App = props => {
   return (
@@ -11,8 +13,8 @@ const App = props => {
         fonts: { sans: '-apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif' }
       }}>
         <Container>
-          <Logo />
-          <Route exact path='/' component={Quote} />
+          <Header />
+          <Route exact path='/' component={Nav} />
         </Container>
       </Provider>
     </Router>
