@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from '../components/Header'
 import Nav from '../components/Nav'
 import Login from '../components/users/Login'
+import SignUp from '../components/users/SignUp'
 
 import '../App.css'
 
@@ -17,6 +18,7 @@ const App = props => {
           <Header />
           <Route exact path='/' component={Nav} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={SignUp} />
         </Container>
       </Provider>
     </Router>
