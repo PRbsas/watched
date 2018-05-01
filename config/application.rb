@@ -32,5 +32,12 @@ module Watched
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.autoload_paths << Rails.root.join('lib')
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :patch, :delete, :options]
+      end
+    end
   end
 end

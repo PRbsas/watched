@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { loginUser } from './auth'
 import { Input, ButtonCircle, Label, Flex, Box } from 'rebass'
 
 export default class Login extends Component {
@@ -19,7 +20,18 @@ export default class Login extends Component {
 
   handleSubmit (event) {
     event.preventDefault()
-    console.log('form submit')
+
+    const credentials = {
+      user: {
+        email: this.state.email,
+        password: this.state.password
+      }
+    }
+
+    loginUser(credentials).then((auth) => {
+      localStorage.setItem('token', auth.token)
+      // console.log(localStorage.getItem('token'))
+    }).then(this.props.history.push('/'))
   }
 
   render () {
