@@ -12,13 +12,13 @@ export default class Login extends Component {
     }
   }
 
-  handleChange (event) {
+  handleOnChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit (event) {
+  handleOnSubmit = event => {
     event.preventDefault()
 
     const credentials = {
@@ -41,11 +41,11 @@ export default class Login extends Component {
       return (
         <Flex>
           <Box width={[ 1, 1 / 2, 1 / 3 ]} mt={[ 10, 30 ]}>
-            <form onSubmit={(event) => this.handleSubmit(event)}>
+            <form onSubmit={this.handleOnSubmit}>
               <Label mt={1}>Email</Label>
-              <Input type='text' name='email' onChange={(event) => this.handleChange(event)} />
+              <Input type='text' name='email' value={this.state.email} onChange={this.handleOnChange} />
               <Label mt={1}>Password</Label>
-              <Input type='password' name='password' onChange={(event) => this.handleChange(event)} />
+              <Input type='password' name='password' value={this.state.password} onChange={this.handleOnChange} />
               <ButtonCircle type='submit' bg='black' mt={15}>Login</ButtonCircle>
             </form>
           </Box>
