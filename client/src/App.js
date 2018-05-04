@@ -15,7 +15,7 @@ const App = props => {
       }}>
         <Container>
           <Header />
-          <Route exact path='/' component={Nav} />
+          <Route path='/' component={Nav} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={SignUp} />
         </Container>

@@ -6,7 +6,12 @@ import { connect } from 'react-redux'
 class Nav extends Component {
   render () {
     if (this.props.logged_in) {
-      return <h1>You are logged_in</h1>
+      return (
+        <ul className='nav'>
+          <li><NavLink to='/search'><ButtonCircle bg='black'>Search</ButtonCircle></NavLink></li>
+          <li><NavLink to='/dashboard'><ButtonCircle bg='black'>Dashboard</ButtonCircle></NavLink></li>
+        </ul>
+      )
     } else {
       return (
         <ul className='nav'>
@@ -22,4 +27,4 @@ const mapStateToProps = (state, ownProps) => {
   return { logged_in: state.session }
 }
 
-export default connect(mapStateToProps, null)(Nav)
+export default connect(mapStateToProps)(Nav)
