@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import session from './session'
+import search from './search'
 
 const rootReducer = combineReducers({
-  session: session
+  session,
+  search
 })
 
 export default rootReducer
