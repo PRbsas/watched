@@ -6,8 +6,10 @@ export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS'
 export function loginUser (user) {
   return function (dispatch) {
     return loginReq(user).then(res => {
-      window.localStorage.setItem('token', res.token)
-      dispatch({ type: LOG_IN_SUCCESS, session: true })
+      if (res.token !== undefined) {
+        window.localStorage.setItem('token', res.token)
+        dispatch({ type: LOG_IN_SUCCESS, session: true })
+      }
     })
   }
 }
