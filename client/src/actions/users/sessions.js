@@ -15,7 +15,7 @@ export function loginUser (user) {
 }
 
 const loginReq = user => (
-  fetch(`${base}/api/v1/login`, {
+  fetch(`${base}/login`, {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {

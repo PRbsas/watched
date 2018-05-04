@@ -3,6 +3,7 @@ import { loginUser } from '../../actions/users/sessions'
 import { Input, ButtonCircle, Label, Flex, Box } from 'rebass'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
   constructor () {
@@ -29,22 +30,11 @@ class Login extends Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.loginUser(this.state)
-    // const credentials = {
-    //   user: {
-    //     email: this.state.email,
-    //     password: this.state.password
-    //   }
-    // }
-
-    // loginUser(credentials).then((auth) => {
-    //   localStorage.setItem('token', auth.token)
-    //   // console.log(localStorage.getItem('token'))
-    // }).then(this.props.history.push('/'))
   }
 
   render () {
     if (this.props.logged_in) {
-      return <h1>Hello</h1>
+      return <Redirect to='/' />
     } else {
       return (
         <Flex>
