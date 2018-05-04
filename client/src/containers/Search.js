@@ -30,19 +30,27 @@ class Search extends Component {
   }
 
   render () {
-      return (
-        <Flex>
-          <Box width={[ 1, 1 / 2, 1 / 3 ]} mt={[ 10, 30 ]}>
-            <form onSubmit={this.handleOnSubmit}>
-              <Label mt={1}>What show do you want to track?</Label>
-              <Input type='text' name='query' value={this.state.query} onChange={this.handleOnChange} />
-              <ButtonCircle type='submit' bg='black' mt={15}>Search</ButtonCircle>
-            </form>
-          </Box>
-        </Flex>
-      )
-    }
+    return (
+      <Flex>
+        <Box width={[ 1, 1 / 2, 1 / 3 ]} mt={[ 10, 30 ]}>
+          <form onSubmit={this.handleOnSubmit}>
+            <Label mt={1}>What show do you want to track?</Label>
+            <Input type='text' name='query' value={this.state.query} onChange={this.handleOnChange} />
+            <ButtonCircle type='submit' bg='black' mt={15}>Search</ButtonCircle>
+          </form>
+          {this.props.shows.map( show => { return <h3>{show.show.title}</h3> })}
+        </Box>
+      </Flex>
+    )
   }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    shows: state.search.shows,
+    isFetching: state.search.isFetching
+   }
+}
 
 const matchDispatchToProps = (dispatch) => {
   return bindActionCreators({
@@ -50,4 +58,4 @@ const matchDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-export default connect(null, matchDispatchToProps)(Search)
+export default connect(mapStateToProps, matchDispatchToProps)(Search)
