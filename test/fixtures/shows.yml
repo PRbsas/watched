@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  year: 1
+  slug: MyString
+  overview: MyText
+  status: MyString
+  aired_episodes: 1
+
+two:
+  title: MyString
+  year: 1
+  slug: MyString
+  overview: MyText
+  status: MyString
+  aired_episodes: 1

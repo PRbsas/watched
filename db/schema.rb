@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_28_202214) do
+ActiveRecord::Schema.define(version: 2018_05_05_230038) do
+
+  create_table "shows", force: :cascade do |t|
+    t.string "title"
+    t.integer "year"
+    t.string "slug"
+    t.text "overview"
+    t.string "status"
+    t.integer "aired_episodes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
