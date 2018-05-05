@@ -3,6 +3,7 @@ import { searchShows } from '../actions/search'
 import { Input, ButtonCircle, Label, Flex, Box } from 'rebass'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
+import ShowList from '../components/search/ShowList'
 
 class Search extends Component {
   constructor () {
@@ -38,7 +39,8 @@ class Search extends Component {
             <Input type='text' name='query' value={this.state.query} onChange={this.handleOnChange} />
             <ButtonCircle type='submit' bg='black' mt={15}>Search</ButtonCircle>
           </form>
-          {this.props.shows.map( show => { return <h3>{show.show.title}</h3> })}
+          <ShowList shows={this.props.shows} />
+          {/* {this.props.shows.map( show => { return <h3>{show.show.title}</h3> })} */}
         </Box>
       </Flex>
     )
