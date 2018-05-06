@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { Box, Text, ButtonCircle } from 'rebass'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { searchShow } from '../../actions/shows'
+import { fetchShowInfo } from '../../actions/shows'
+import { addShowToCollection } from '../../actions/collection'
 
 class ResultItem extends Component {
   handleOnClick = (event) => {
     event.preventDefault()
-    this.props.searchShow(this.props.show.show.ids.slug)
+    this.props.actions.fetchShowInfo(this.props.show.show.ids.slug)
+   //this.addShowToCollection(this.props.show.show)
   }
 
   render () {
@@ -21,9 +23,12 @@ class ResultItem extends Component {
 }
 
 const matchDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    searchShow
-  }, dispatch)
+  return {
+    actions: {
+      fetchShowInfo: bindActionCreators(fetchShowInfo, dispatch),
+      addShowToCollection: bindActionCreators(addShowToCollection, dispatch)
+    }
+  }
 }
 
 export default connect(null, matchDispatchToProps)(ResultItem)

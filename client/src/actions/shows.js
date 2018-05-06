@@ -1,13 +1,13 @@
 import fetch from 'cross-fetch'
 
-export const FETCHING_SHOW = 'FETCHING_SHOW'
-export const FETCHED_SHOW = 'FETCHED_SHOW'
+export const FETCHING_SHOW_INFO = 'FETCHING_SHOW_INFO'
+export const FETCHED_SHOW_INFO = 'FETCHED_SHOW_INFO'
 
-export const searchShow = (slug) => {
+export const fetchShowInfo = (slug) => {
   return function (dispatch) {
-    dispatch({ type: FETCHING_SHOW })
+    dispatch({ type: FETCHING_SHOW_INFO })
     return fetchShow(slug).then(res => {
-      dispatch({ type: FETCHED_SHOW, show: res })
+      dispatch({ type: FETCHED_SHOW_INFO, show: res })
     })
   }
 }
