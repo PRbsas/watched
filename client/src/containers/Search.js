@@ -42,10 +42,8 @@ class Search extends Component {
             </form>
           </Box>
         </Flex>
-        <Flex>
-          <Box>
-            <SearchResults />
-          </Box>
+        <Flex >
+          <SearchResults />
         </Flex>
       </Container>
     )

@@ -12,9 +12,9 @@ class ResultItem extends Component {
 
   render () {
     return (
-      <Box width={1} mt={10} key={this.props.show.show.ids.slug}>
-        <Text>{this.props.show.show.title}- {this.props.show.show.year}</Text>
-        <ButtonCircle type='submit' bg='black' style={{ display: 'inline' }} onClick={this.handleOnClick}>Show More</ButtonCircle>
+      <Box width={1} mt={15} key={this.props.show.show.ids.slug}>
+        <Text>{this.props.show.show.title} - ({this.props.show.show.year})</Text>
+        <ButtonCircle type='submit' bg='black' px={2} py={2} mt={2} fontSize={12} onClick={this.handleOnClick}>Show More</ButtonCircle>
       </Box>
     )
   }
