@@ -2,7 +2,7 @@ import fetch from 'cross-fetch'
 
 export const POSTING_SHOW_TO_COLLECTION = 'POSTING_SHOW_TO_COLLECTION'
 export const ADDED_SHOW_TO_COLLECTION = 'ADDED_SHOW_TO_COLLECTION'
-const token = window.localStorage.getItem('token')
+const token = localStorage.getItem('token')
 
 export const addShowToCollection = (show) => {
   return function (dispatch) {
