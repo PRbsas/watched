@@ -16,13 +16,13 @@ class SearchResults extends Component {
   render () {
     return (
       <Flex flexWrap='wrap' width={1}>
-      <Box width={[ 1, null, 1 / 2, null ]} mt={[ 10, 30 ]}>
-        { this.props.shows.map(show => <ResultItem key={show.show.ids.slug} show={show} />) }
-      </Box>
-      <Box width={[ 1, null, 1 / 2, null ]} mt={[ 10, 30 ]}>
-        {this.props.showInfo && <ShowInfo showInfo={this.props.showInfo} addShow={this.addShow} />}
-      </Box>
-    </Flex>
+        <Box width={[ 1, null, 1 / 2, null ]} mt={[ 10, 30 ]}>
+          { this.props.shows.map(show => <ResultItem key={show.show.ids.slug} show={show} />) }
+        </Box>
+        <Box width={[ 1, null, 1 / 2, null ]} mt={[ 10, 30 ]}>
+          {this.props.showInfo && <ShowInfo showInfo={this.props.showInfo} addShow={this.addShow} />}
+        </Box>
+      </Flex>
     )
   }
 }

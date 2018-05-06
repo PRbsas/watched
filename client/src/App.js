@@ -6,6 +6,7 @@ import Nav from './components/Nav'
 import Login from './components/users/Login'
 import SignUp from './components/users/SignUp'
 import Search from './containers/Search'
+import Dashboard from './containers/Dashboard'
 import './App.css'
 
 const App = props => {
@@ -20,6 +21,7 @@ const App = props => {
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={SignUp} />
           <Route exact path='/search' component={Search} />
+          <Route exact path='/dashboard' component={Dashboard} />
         </Container>
       </Provider>
     </Router>
