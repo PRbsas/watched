@@ -7,7 +7,7 @@ export default function showsReducer (state = {
     case FETCHING_SHOW_INFO:
       return Object.assign({}, state, { isFetching: true })
     case FETCHED_SHOW_INFO:
-      return Object.assign({}, state, { show: action.show, isFetching: false })
+      return Object.assign({}, state, { showInfo: action.show, isFetching: false })
     default:
       return state
   }

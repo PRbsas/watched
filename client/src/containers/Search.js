@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { searchShows } from '../actions/search'
-import { Input, ButtonCircle, Label, Flex, Box } from 'rebass'
+import { Input, ButtonCircle, Label, Flex, Box, Container } from 'rebass'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import SearchResults from './SearchResults'
@@ -32,17 +32,22 @@ class Search extends Component {
 
   render () {
     return (
-      <Flex>
-        <Box width={[ 1, 1 / 2, 1 / 3 ]} mt={[ 10, 30 ]}>
-          <form onSubmit={this.handleOnSubmit}>
-            <Label mt={1}>What show do you want to track?</Label>
-            <Input type='text' name='query' value={this.state.query} onChange={this.handleOnChange} />
-            <ButtonCircle type='submit' bg='black' mt={15}>Search</ButtonCircle>
-          </form>
-          <SearchResults />
-          {/* {this.props.shows.map( show => { return <h3>{show.show.title}</h3> })} */}
-        </Box>
-      </Flex>
+      <Container px={-3}>
+        <Flex>
+          <Box width={[ 1, 1 / 2, 1 / 3 ]} mt={[ 10, 30 ]}>
+            <form onSubmit={this.handleOnSubmit}>
+              <Label mt={1}>What show do you want to track?</Label>
+              <Input type='text' name='query' value={this.state.query} onChange={this.handleOnChange}/>
+              <ButtonCircle type='submit' bg='black' mt={15}>Search</ButtonCircle>
+            </form>
+          </Box>
+        </Flex>
+        <Flex>
+          <Box>
+            <SearchResults />
+          </Box>
+        </Flex>
+      </Container>
     )
   }
 }

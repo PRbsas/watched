@@ -2,6 +2,7 @@ import fetch from 'cross-fetch'
 
 export const POSTING_SHOW_TO_COLLECTION = 'POSTING_SHOW_TO_COLLECTION'
 export const ADDED_SHOW_TO_COLLECTION = 'ADDED_SHOW_TO_COLLECTION'
+const token = window.localStorage.getItem('token')
 
 export const addShowToCollection = (show) => {
   return function (dispatch) {
@@ -19,7 +20,7 @@ const postShowToCollection = show => (
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
+      'Authorization': `Bearer ${token}`
     }
   }).then((res) => { console.log(res.json()) })
 )
