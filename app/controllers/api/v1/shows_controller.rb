@@ -2,10 +2,13 @@ class Api::V1::ShowsController < ApplicationController
   skip_before_action :authenticate
 
   def index
+    shows = Show.all
+    render json: shows
   end
 
   def create
     show = Show.new(show_params)
+    current_user.shows << show
     if show.save
       render json: show
     else
