@@ -7,7 +7,7 @@ const ShowInfo = ({ showInfo, addShow }) => {
     <Box width={1} mt={[ 30, 0 ]} pl={10}>
       <Heading>{showInfo.title}</Heading>
       <Divider />
-      <Text>Genres: <strong>{showInfo.genres.map(genre => <span>{genre} </span>)}</strong></Text>
+      <Text>Genres: <strong>{showInfo.genres.map(genre => <span key={genre}>{genre} </span>)}</strong></Text>
       <Text mt={1}>Year: <strong>{showInfo.year}</strong></Text>
       <Text mt={1}>Status: <strong>{showInfo.status}</strong></Text>
       <Text mt={1}>Episodes: <strong>{showInfo.aired_episodes}</strong></Text>

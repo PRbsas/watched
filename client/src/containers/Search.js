@@ -50,17 +50,10 @@ class Search extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    shows: state.search.shows,
-    isFetching: state.search.isFetching
-   }
-}
-
 const matchDispatchToProps = (dispatch) => {
   return bindActionCreators({
     searchShows
   }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Search)
+export default connect(null, matchDispatchToProps)(Search)

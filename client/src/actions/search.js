@@ -2,8 +2,15 @@ import fetch from 'cross-fetch'
 
 export const FETCHING_SHOWS = 'FETCHING_SHOWS'
 export const FETCHED_SHOWS = 'FETCHED_SHOWS'
+export const CLEAR_RESULTS = 'CLEAR_RESULTS'
 
-export function searchShows (query) {
+export const clearResults = () => {
+  return {
+    type: CLEAR_RESULTS
+  }
+}
+
+export const searchShows = (query) => {
   return function (dispatch) {
     dispatch({ type: FETCHING_SHOWS })
     return fetchShows(query).then(res => {
