@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { Flex, Box } from 'rebass'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -8,12 +9,20 @@ import ResultItem from '../components/search/ResultItem'
 import ShowInfo from '../components/ShowInfo'
 
 class SearchResults extends Component {
+  state = {
+    toDashboard: false
+  }
+
   addShow = (event) => {
     event.preventDefault()
     this.props.actions.addShowToCollection(this.props.showInfo)
+    this.setState(() => ({ toDashboard: true }))
   }
 
   render () {
+    if (this.state.toDashboard === true) {
+      return <Redirect to='/dashboard' />
+    }
     return (
       <Flex flexWrap='wrap' width={1}>
         <Box width={[ 1, null, 1 / 2, null ]} mt={[ 10, 30 ]}>

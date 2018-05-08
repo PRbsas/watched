@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Flex, Box, Text, Container } from 'rebass'
+import { Flex, Container } from 'rebass'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchCollection } from '../actions/collection'
@@ -13,7 +13,7 @@ class Dashboard extends Component {
 
   render () {
     return (
-      <Container>
+      <Container mt={5}>
         <Stats count={this.props.collection.length} />
         <Flex flexWrap='wrap' width={1}>
           {this.props.collection.map(show => <CollectionInfo key={show.id} info={show} status={this.props.status} />)}
