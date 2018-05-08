@@ -7,7 +7,8 @@ class Api::V1::ShowsController < ApplicationController
   end
 
   def create
-    show = Show.new(show_params)
+    # show = Show.new(show_params)
+    show = Show.find_or_create_by(show_params)
     current_user.shows << show
     if show.save
       render json: show
