@@ -7,6 +7,10 @@ import Stats from '../components/Stats'
 import CollectionInfo from '../components/CollectionInfo'
 
 class Dashboard extends Component {
+  componentWillMount () {
+    this.props.actions.fetchCollection()
+  }
+
   componentDidMount () {
     this.props.actions.fetchCollection()
   }
