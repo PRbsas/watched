@@ -31,10 +31,10 @@ class SearchResults extends Component {
     return (
       <Flex flexWrap='wrap' width={1}>
         <Box width={[ 1, null, 1 / 2, null ]} mt={[ 10, 30 ]}>
-          { this.props.shows.map(show => <ResultItem key={show.show.ids.slug} show={show} />) }
+          { this.props.shows.map(show => <ResultItem key={show.show.ids.trakt} show={show} />) }
         </Box>
         <Box width={[ 1, null, 1 / 2, null ]} mt={[ 10, 30 ]}>
-          {this.props.showInfo && <ShowInfo key={this.props.showInfo.ids.slug} showInfo={this.props.showInfo} addShow={this.addShow} />}
+          {this.props.showInfo && <ShowInfo key={this.props.showInfo.ids.imdb} showInfo={this.props.showInfo} addShow={this.addShow} />}
         </Box>
       </Flex>
     )

@@ -10,7 +10,7 @@ export default function showsReducer (state = {
     case POSTING_SHOW_TO_COLLECTION:
       return Object.assign({}, state, { isFetching: true, status: 'to watch' })
     case ADDED_SHOW_TO_COLLECTION:
-      return Object.assign({}, state, { shows: action.show, isFetching: false })
+      return Object.assign({}, state, { myCollection: [ ...state.myCollection, action.show ] })
     case FETCHING_COLLECTION:
       return Object.assign({}, state, { isFetching: true })
     case FETCHED_COLLECTION:
