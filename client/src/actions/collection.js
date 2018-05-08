@@ -4,6 +4,7 @@ export const POSTING_SHOW_TO_COLLECTION = 'POSTING_SHOW_TO_COLLECTION'
 export const ADDED_SHOW_TO_COLLECTION = 'ADDED_SHOW_TO_COLLECTION'
 export const FETCHING_COLLECTION = 'FETCHING_COLLECTION'
 export const FETCHED_COLLECTION = 'FETCHED_COLLECTION'
+export const ADD_LIKE = 'ADD_LIKE'
 
 const token = localStorage.getItem('token')
 
@@ -47,3 +48,7 @@ const getCollection = () => (
     }
   }).then((res) => { return res.json() })
 )
+
+export const addLike = id => {
+  return { type: ADD_LIKE, id }
+}

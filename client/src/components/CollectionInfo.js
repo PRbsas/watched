@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 import { Box, Text, Divider, Heading, Badge, ButtonCircle } from 'rebass'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { addLike } from '../actions/collection'
 
-export default class CollectionInfo extends Component {
-  constructor () {
-    super()
+class CollectionInfo extends Component {
 
-    this.state = {
-      counter: 0
-    }
-  }
-
-  updateLikes = () => {
-    this.setState({
-      counter: this.state.counter + 1
-    })
+  updateLikes = (id) => {
+    this.props.actions.addLike(id)
   }
 
   render () {
@@ -27,8 +21,18 @@ export default class CollectionInfo extends Component {
         <Text mt={1}>Episodes: <strong>{info.aired_episodes}</strong></Text>
         <Text mt={3}>{info.overview}</Text>
         <Badge mt={3} style={{backgroundColor: '#79FFE1', color: '#000'}}>watch</Badge>
-        <ButtonCircle type='submit' bg='black' mt={15} onClick={this.updateLikes}>{this.state.counter}</ButtonCircle>
+        <ButtonCircle type='submit' bg='black' mt={15} onClick={() => this.updateLikes(info.id)}>{info.likes}</ButtonCircle>
       </Box>
     )
   }
 }
+
+const matchDispatchToProps = (dispatch) => {
+  return {
+    actions: {
+      addLike: bindActionCreators(addLike, dispatch)
+    }
+  }
+}
+
+export default connect(null, matchDispatchToProps)(CollectionInfo)
