@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchCollection } from '../actions/collection'
 import Stats from '../components/Stats'
+import CollectionInfo from '../components/CollectionInfo'
 
 class Dashboard extends Component {
   componentDidMount () {
@@ -13,13 +14,9 @@ class Dashboard extends Component {
   render () {
     return (
       <Container>
+        <Stats count={this.props.collection.length} />
         <Flex flexWrap='wrap' width={1}>
-          <Stats count={this.props.collection.length} />
-        </Flex>
-        <Flex flexWrap='wrap' width={1}>
-          <Box width={[ 1, 1 / 2, 1 / 3 ]} mt={[ 10, 30 ]}>
-            {this.props.collection.map(show => <Text key={show.id}>{show.title}</Text>)}
-          </Box>
+          {this.props.collection.map(show => <CollectionInfo key={show.id} info={show} status={this.props.status} />)}
         </Flex>
       </Container>
     )
@@ -28,7 +25,8 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    collection: state.collection.myCollection
+    collection: state.collection.myCollection,
+    status: state.collection.status
   }
 }
 
