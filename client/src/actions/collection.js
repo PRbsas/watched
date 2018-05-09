@@ -49,6 +49,22 @@ const getCollection = () => (
   }).then((res) => { return res.json() })
 )
 
-export const addLike = id => {
-  return { type: ADD_LIKE, id }
+export const addLike = (id) => {
+  return function (dispatch) {
+    return postLikes(id).then(res => {
+      dispatch({ type: ADD_LIKE, id })
+    })
+  }
 }
+
+const postLikes = id => (
+  fetch('http://localhost:3001/api/v1/likes', {
+    method: 'POST',
+    body: JSON.stringify({ 'id': id }),
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+  }).then((res) => { return res.json() })
+)

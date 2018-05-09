@@ -17,8 +17,14 @@ class Api::V1::ShowsController < ApplicationController
     end
   end
 
+  def likes
+    show = Show.find_by_id(params[:id])
+    show.likes = show.likes.to_i + 1
+    show.save
+  end
+
   private
   def show_params
-    params.require(:show).permit(:title, :year, :slug, :overview, :status, :aired_episodes)
+    params.require(:show).permit(:title, :year, :slug, :overview, :status, :aired_episodes, :likes, :id)
   end
 end

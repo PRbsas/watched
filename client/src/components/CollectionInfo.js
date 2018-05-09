@@ -21,7 +21,7 @@ class CollectionInfo extends Component {
         <Text mt={1}>Episodes: <strong>{info.aired_episodes}</strong></Text>
         <Text mt={3}>{info.overview}</Text>
         <Badge mt={3} style={{backgroundColor: '#79FFE1', color: '#000'}}>watch</Badge>
-        <ButtonCircle type='submit' bg='black' mt={15} onClick={() => this.updateLikes(info.id)}>{info.likes}</ButtonCircle>
+        <ButtonCircle type='submit' bg='black' mt={15} onClick={() => this.updateLikes(info.id)}>{info.likes ? parseInt(info.likes) : 0}</ButtonCircle>
       </Box>
     )
   }
