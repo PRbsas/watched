@@ -10,7 +10,7 @@ class Dashboard extends Component {
       <Container mt={5}>
         <Stats count={this.props.collection.length} />
         <Flex flexWrap='wrap' width={1}>
-          {this.props.collection.map(show => <CollectionInfo key={show.slug} info={show} status={this.props.status} />)}
+          {this.props.collection.map(show => <CollectionInfo key={show.id} info={show} status={this.props.watch} />)}
         </Flex>
       </Container>
     )

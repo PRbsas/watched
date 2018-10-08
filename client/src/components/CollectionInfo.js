@@ -1,19 +1,12 @@
 import React, { Component } from 'react'
-import { Box, Text, Divider, Heading, Badge, ButtonCircle } from 'rebass'
+import { Box, Text, Divider, Heading, ButtonCircle } from 'rebass'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { updateStatus } from '../actions/collection'
 
-export default class CollectionInfo extends Component {
-  constructor () {
-    super()
-
-    this.state = {
-      counter: 0
-    }
-  }
-
-  updateLikes = () => {
-    this.setState({
-      counter: this.state.counter + 1
-    })
+class CollectionInfo extends Component {
+  updateStatus = (id) => {
+    this.props.updateStatus(id)
   }
 
   render () {
@@ -26,9 +19,15 @@ export default class CollectionInfo extends Component {
         <Text mt={1}>Status: <strong>{info.status}</strong></Text>
         <Text mt={1}>Episodes: <strong>{info.aired_episodes}</strong></Text>
         <Text mt={3}>{info.overview}</Text>
-        <Badge mt={3} style={{backgroundColor: '#79FFE1', color: '#000'}}>watch</Badge>
-        <ButtonCircle type='submit' bg='black' mt={15} onClick={this.updateLikes}>{this.state.counter}</ButtonCircle>
+        {/* <Badge mt={3} style={{backgroundColor: '#79FFE1', color: '#000'}}>status</Badge> */}
+        <ButtonCircle type='submit' bg='black' mt={15} onClick={() => this.updateStatus(info.id)}>{info.watch || 'to watch'}</ButtonCircle>
       </Box>
     )
   }
 }
+
+const matchDispatchToProps = (dispatch) => {
+  return { updateStatus: bindActionCreators(updateStatus, dispatch) }
+}
+
+export default connect(null, matchDispatchToProps)(CollectionInfo)

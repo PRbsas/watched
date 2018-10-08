@@ -2,6 +2,13 @@ import fetch from 'cross-fetch'
 
 export const FETCHING_SHOW_INFO = 'FETCHING_SHOW_INFO'
 export const FETCHED_SHOW_INFO = 'FETCHED_SHOW_INFO'
+export const CLEAR_RESULTS = 'CLEAR_RESULTS'
+
+export const clearResults = () => {
+  return {
+    type: CLEAR_RESULTS
+  }
+}
 
 export const fetchShowInfo = (slug) => {
   return function (dispatch) {
